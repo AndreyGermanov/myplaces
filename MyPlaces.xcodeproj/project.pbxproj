@@ -8,12 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		CE57FC9C20191CBB00C1598C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE57FC9B20191CBB00C1598C /* AppDelegate.swift */; };
-		CE57FC9E20191CBB00C1598C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE57FC9D20191CBB00C1598C /* ViewController.swift */; };
 		CE57FCA120191CBB00C1598C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE57FC9F20191CBB00C1598C /* Main.storyboard */; };
 		CE57FCA320191CBB00C1598C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE57FCA220191CBB00C1598C /* Assets.xcassets */; };
 		CE57FCA620191CBB00C1598C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE57FCA420191CBB00C1598C /* LaunchScreen.storyboard */; };
 		CE57FCB120191CBC00C1598C /* MyPlacesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE57FCB020191CBC00C1598C /* MyPlacesTests.swift */; };
 		CE57FCBC20191CBC00C1598C /* MyPlacesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE57FCBB20191CBC00C1598C /* MyPlacesUITests.swift */; };
+		CE57FCCA20191E2100C1598C /* PlacesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE57FCC920191E2100C1598C /* PlacesViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +36,6 @@
 /* Begin PBXFileReference section */
 		CE57FC9820191CBB00C1598C /* MyPlaces.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyPlaces.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE57FC9B20191CBB00C1598C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CE57FC9D20191CBB00C1598C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		CE57FCA020191CBB00C1598C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CE57FCA220191CBB00C1598C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE57FCA520191CBB00C1598C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +46,7 @@
 		CE57FCB720191CBC00C1598C /* MyPlacesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyPlacesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE57FCBB20191CBC00C1598C /* MyPlacesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPlacesUITests.swift; sourceTree = "<group>"; };
 		CE57FCBD20191CBC00C1598C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CE57FCC920191E2100C1598C /* PlacesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,8 +98,8 @@
 			isa = PBXGroup;
 			children = (
 				CE57FC9B20191CBB00C1598C /* AppDelegate.swift */,
-				CE57FC9D20191CBB00C1598C /* ViewController.swift */,
 				CE57FC9F20191CBB00C1598C /* Main.storyboard */,
+				CE57FCC920191E2100C1598C /* PlacesViewController.swift */,
 				CE57FCA220191CBB00C1598C /* Assets.xcassets */,
 				CE57FCA420191CBB00C1598C /* LaunchScreen.storyboard */,
 				CE57FCA720191CBB00C1598C /* Info.plist */,
@@ -259,7 +259,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE57FC9E20191CBB00C1598C /* ViewController.swift in Sources */,
+				CE57FCCA20191E2100C1598C /* PlacesViewController.swift in Sources */,
 				CE57FC9C20191CBB00C1598C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -427,6 +427,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7QLLYRF93H;
 				INFOPLIST_FILE = MyPlaces/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.andreygermanov.MyPlaces;
@@ -441,6 +442,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7QLLYRF93H;
 				INFOPLIST_FILE = MyPlaces/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.andreygermanov.MyPlaces;
