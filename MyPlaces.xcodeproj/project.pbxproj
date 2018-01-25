@@ -14,6 +14,17 @@
 		CE57FCB120191CBC00C1598C /* MyPlacesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE57FCB020191CBC00C1598C /* MyPlacesTests.swift */; };
 		CE57FCBC20191CBC00C1598C /* MyPlacesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE57FCBB20191CBC00C1598C /* MyPlacesUITests.swift */; };
 		CE57FCCA20191E2100C1598C /* PlacesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE57FCC920191E2100C1598C /* PlacesViewController.swift */; };
+		CEF698442019EE23008CACA0 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF698432019EE23008CACA0 /* Place.swift */; };
+		CEF698462019EFF6008CACA0 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF698452019EFF6008CACA0 /* Photo.swift */; };
+		CEF698482019F1EF008CACA0 /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF698472019F1EF008CACA0 /* Application.swift */; };
+		CEF6984A2019F42C008CACA0 /* PlacesCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF698492019F42C008CACA0 /* PlacesCellTableViewCell.swift */; };
+		CEF6984C201A2E0C008CACA0 /* PlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF6984B201A2E0C008CACA0 /* PlaceViewController.swift */; };
+		CEF6984E201A2E2E008CACA0 /* PhotosListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF6984D201A2E2E008CACA0 /* PhotosListViewController.swift */; };
+		CEF69850201A2E48008CACA0 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF6984F201A2E48008CACA0 /* PhotoViewController.swift */; };
+		CEF69852201A3006008CACA0 /* PlaceTitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF69851201A3006008CACA0 /* PlaceTitleTableViewCell.swift */; };
+		CEF69854201A3024008CACA0 /* PlaceLocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF69853201A3024008CACA0 /* PlaceLocationTableViewCell.swift */; };
+		CEF69856201A306C008CACA0 /* PlaceDescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF69855201A306C008CACA0 /* PlaceDescriptionTableViewCell.swift */; };
+		CEF69858201A3084008CACA0 /* PlacePhotosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF69857201A3084008CACA0 /* PlacePhotosTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +58,17 @@
 		CE57FCBB20191CBC00C1598C /* MyPlacesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPlacesUITests.swift; sourceTree = "<group>"; };
 		CE57FCBD20191CBC00C1598C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE57FCC920191E2100C1598C /* PlacesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesViewController.swift; sourceTree = "<group>"; };
+		CEF698432019EE23008CACA0 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
+		CEF698452019EFF6008CACA0 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
+		CEF698472019F1EF008CACA0 /* Application.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Application.swift; sourceTree = "<group>"; };
+		CEF698492019F42C008CACA0 /* PlacesCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesCellTableViewCell.swift; sourceTree = "<group>"; };
+		CEF6984B201A2E0C008CACA0 /* PlaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceViewController.swift; sourceTree = "<group>"; };
+		CEF6984D201A2E2E008CACA0 /* PhotosListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosListViewController.swift; sourceTree = "<group>"; };
+		CEF6984F201A2E48008CACA0 /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
+		CEF69851201A3006008CACA0 /* PlaceTitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceTitleTableViewCell.swift; sourceTree = "<group>"; };
+		CEF69853201A3024008CACA0 /* PlaceLocationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceLocationTableViewCell.swift; sourceTree = "<group>"; };
+		CEF69855201A306C008CACA0 /* PlaceDescriptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDescriptionTableViewCell.swift; sourceTree = "<group>"; };
+		CEF69857201A3084008CACA0 /* PlacePhotosTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacePhotosTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,11 +119,11 @@
 		CE57FC9A20191CBB00C1598C /* MyPlaces */ = {
 			isa = PBXGroup;
 			children = (
+				CEF698422019ED17008CACA0 /* Views */,
+				CEF698412019ED0C008CACA0 /* Models */,
+				CEF698402019ECE7008CACA0 /* Controllers */,
 				CE57FC9B20191CBB00C1598C /* AppDelegate.swift */,
-				CE57FC9F20191CBB00C1598C /* Main.storyboard */,
-				CE57FCC920191E2100C1598C /* PlacesViewController.swift */,
 				CE57FCA220191CBB00C1598C /* Assets.xcassets */,
-				CE57FCA420191CBB00C1598C /* LaunchScreen.storyboard */,
 				CE57FCA720191CBB00C1598C /* Info.plist */,
 			);
 			path = MyPlaces;
@@ -123,6 +145,41 @@
 				CE57FCBD20191CBC00C1598C /* Info.plist */,
 			);
 			path = MyPlacesUITests;
+			sourceTree = "<group>";
+		};
+		CEF698402019ECE7008CACA0 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				CE57FCC920191E2100C1598C /* PlacesViewController.swift */,
+				CEF6984B201A2E0C008CACA0 /* PlaceViewController.swift */,
+				CEF6984D201A2E2E008CACA0 /* PhotosListViewController.swift */,
+				CEF6984F201A2E48008CACA0 /* PhotoViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		CEF698412019ED0C008CACA0 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CEF698432019EE23008CACA0 /* Place.swift */,
+				CEF698452019EFF6008CACA0 /* Photo.swift */,
+				CEF698472019F1EF008CACA0 /* Application.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		CEF698422019ED17008CACA0 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CE57FC9F20191CBB00C1598C /* Main.storyboard */,
+				CE57FCA420191CBB00C1598C /* LaunchScreen.storyboard */,
+				CEF698492019F42C008CACA0 /* PlacesCellTableViewCell.swift */,
+				CEF69851201A3006008CACA0 /* PlaceTitleTableViewCell.swift */,
+				CEF69853201A3024008CACA0 /* PlaceLocationTableViewCell.swift */,
+				CEF69855201A306C008CACA0 /* PlaceDescriptionTableViewCell.swift */,
+				CEF69857201A3084008CACA0 /* PlacePhotosTableViewCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,7 +316,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEF698482019F1EF008CACA0 /* Application.swift in Sources */,
+				CEF6984E201A2E2E008CACA0 /* PhotosListViewController.swift in Sources */,
+				CEF69852201A3006008CACA0 /* PlaceTitleTableViewCell.swift in Sources */,
+				CEF698462019EFF6008CACA0 /* Photo.swift in Sources */,
+				CEF69854201A3024008CACA0 /* PlaceLocationTableViewCell.swift in Sources */,
+				CEF698442019EE23008CACA0 /* Place.swift in Sources */,
+				CEF6984C201A2E0C008CACA0 /* PlaceViewController.swift in Sources */,
+				CEF69850201A2E48008CACA0 /* PhotoViewController.swift in Sources */,
+				CEF6984A2019F42C008CACA0 /* PlacesCellTableViewCell.swift in Sources */,
 				CE57FCCA20191E2100C1598C /* PlacesViewController.swift in Sources */,
+				CEF69856201A306C008CACA0 /* PlaceDescriptionTableViewCell.swift in Sources */,
+				CEF69858201A3084008CACA0 /* PlacePhotosTableViewCell.swift in Sources */,
 				CE57FC9C20191CBB00C1598C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="57M-cW-GNY">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="YFI-xZ-IjI">
+            <objects>
+                <navigationController id="57M-cW-GNY" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="U71-LQ-rk8">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="hvO-Nt-jjD" kind="relationship" relationship="rootViewController" id="mRP-rQ-8Rm"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5cO-am-p5T" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-90" y="146"/>
+        </scene>
+        <!--My Places-->
+        <scene sceneID="JKL-c4-cci">
+            <objects>
+                <viewController storyboardIdentifier="MyPlacesController" title="My Places" useStoryboardIdentifierAsRestorationIdentifier="YES" id="hvO-Nt-jjD" customClass="PlacesViewController" customModule="MyPlaces" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vI9-1S-pHp">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" restorationIdentifier="PlacesMap" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="CVR-xd-NtJ">
+                                <rect key="frame" x="0.0" y="64" width="375" height="276"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="276" id="z5Z-3V-oKC"/>
+                                </constraints>
+                            </mapView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="PlacesTable" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="DGF-pX-CA3">
+                                <rect key="frame" x="0.0" y="340" width="375" height="327"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="detailButton" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="placeCell" editingAccessoryType="detailButton" id="3sH-dV-L8B" customClass="PlacesCellTableViewCell" customModule="MyPlaces">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3sH-dV-L8B" id="C5X-Bn-U2p">
+                                            <rect key="frame" x="0.0" y="0.0" width="328" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dsX-H6-fyZ">
+                                                    <rect key="frame" x="15" y="11" width="42" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="Ob0-CO-vsd"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="dsX-H6-fyZ" firstAttribute="top" secondItem="C5X-Bn-U2p" secondAttribute="topMargin" id="gZg-a6-G8i"/>
+                                                <constraint firstItem="dsX-H6-fyZ" firstAttribute="leading" secondItem="C5X-Bn-U2p" secondAttribute="leadingMargin" id="m3D-xC-H2I"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="placeTitleLabel" destination="dsX-H6-fyZ" id="nXO-mR-del"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="CVR-xd-NtJ" firstAttribute="leading" secondItem="hdK-ma-Ami" secondAttribute="leading" id="G1z-Kq-d88"/>
+                            <constraint firstItem="DGF-pX-CA3" firstAttribute="top" secondItem="CVR-xd-NtJ" secondAttribute="bottom" id="OuU-h2-6n2"/>
+                            <constraint firstItem="CVR-xd-NtJ" firstAttribute="trailing" secondItem="hdK-ma-Ami" secondAttribute="trailing" id="RmF-aT-p8F"/>
+                            <constraint firstItem="DGF-pX-CA3" firstAttribute="leading" secondItem="hdK-ma-Ami" secondAttribute="leading" id="Ruu-k8-u94"/>
+                            <constraint firstItem="DGF-pX-CA3" firstAttribute="bottom" secondItem="hdK-ma-Ami" secondAttribute="bottom" id="bNn-sQ-3eo"/>
+                            <constraint firstItem="DGF-pX-CA3" firstAttribute="trailing" secondItem="hdK-ma-Ami" secondAttribute="trailing" id="noL-V4-HbA"/>
+                            <constraint firstItem="CVR-xd-NtJ" firstAttribute="top" secondItem="hdK-ma-Ami" secondAttribute="top" id="taC-Qx-Hgs"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="hdK-ma-Ami"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="NEU-hI-3Bg">
+                        <barButtonItem key="rightBarButtonItem" title="Hide map" id="8Xi-lW-cqd">
+                            <connections>
+                                <action selector="toggleMapButtonClick:" destination="hvO-Nt-jjD" id="NLV-o2-79P"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="mapBottomConstraint" destination="OuU-h2-6n2" id="XFv-CF-ewt"/>
+                        <outlet property="mapHeightConstraint" destination="z5Z-3V-oKC" id="7Od-Bl-sdz"/>
+                        <outlet property="placesMap" destination="CVR-xd-NtJ" id="RL3-JR-Bel"/>
+                        <outlet property="placesTable" destination="DGF-pX-CA3" id="7dm-vY-b3d"/>
+                        <outlet property="toggleMapButton" destination="8Xi-lW-cqd" id="rHq-l8-rGL"/>
+                        <segue destination="l0a-0v-LtL" kind="show" identifier="placeDetailView" id="DPy-Sq-aIA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mCU-16-2Ee" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="664.79999999999995" y="144.3778110944528"/>
+        </scene>
+        <!--Photos List View Controller-->
+        <scene sceneID="hIv-1u-SAh">
+            <objects>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="glh-jw-ihr" customClass="PhotosListViewController" customModule="MyPlaces" customModuleProvider="target" sceneMemberID="viewController">
+                    <connections>
+                        <segue destination="QEW-qd-Nlc" kind="show" id="hoL-Pd-YY5"/>
+                    </connections>
+                </pageViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="amX-si-uca" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2183" y="144"/>
+        </scene>
+        <!--Photo View Controller-->
+        <scene sceneID="k35-TI-y5o">
+            <objects>
+                <viewController id="QEW-qd-Nlc" customClass="PhotoViewController" customModule="MyPlaces" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4mq-eD-l7q">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="g5t-ez-0Qh"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sOc-OL-tmX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2905" y="144"/>
+        </scene>
+        <!--Place View Controller-->
+        <scene sceneID="Dhb-UV-sD9">
+            <objects>
+                <viewController id="l0a-0v-LtL" customClass="PlaceViewController" customModule="MyPlaces" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="H6Q-1q-5te">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yz6-AG-0Ha">
+                                <rect key="frame" x="0.0" y="618" width="375" height="49"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <items>
+                                    <tabBarItem title="Delete" id="Iau-QX-02T"/>
+                                    <tabBarItem title="Add picture" id="wzy-jH-DHW"/>
+                                </items>
+                            </tabBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KAF-Yo-8tN">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" accessoryType="detailButton" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="placeDateCell" id="UC2-51-eAB">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="UC2-51-eAB" id="161-cg-b2W">
+                                            <rect key="frame" x="0.0" y="0.0" width="328" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" accessoryType="detailButton" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="placeTitleCell" id="G1n-z2-hqS" customClass="PlaceTitleTableViewCell" customModule="MyPlaces">
+                                        <rect key="frame" x="0.0" y="72" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="G1n-z2-hqS" id="WrW-BJ-Po7">
+                                            <rect key="frame" x="0.0" y="0.0" width="328" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="placeTitleLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jZn-Ud-Ysu">
+                                                    <rect key="frame" x="15" y="11" width="313" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="wXo-um-d5k"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="jZn-Ud-Ysu" firstAttribute="top" secondItem="WrW-BJ-Po7" secondAttribute="top" constant="11" id="Dxb-hd-l3N"/>
+                                                <constraint firstAttribute="trailing" secondItem="jZn-Ud-Ysu" secondAttribute="trailing" id="V59-8n-iOM"/>
+                                                <constraint firstItem="jZn-Ud-Ysu" firstAttribute="leading" secondItem="WrW-BJ-Po7" secondAttribute="leading" constant="15" id="gKq-g7-l4o"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="placeTitleLabel" destination="jZn-Ud-Ysu" id="NTP-0w-ckm"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" accessoryType="detailButton" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="placeLocationCell" id="6mF-AC-PA3" customClass="PlaceLocationTableViewCell" customModule="MyPlaces">
+                                        <rect key="frame" x="0.0" y="116" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6mF-AC-PA3" id="osg-ML-mod">
+                                            <rect key="frame" x="0.0" y="0.0" width="328" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="placeLocationLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wps-mv-TWO">
+                                                    <rect key="frame" x="15" y="12" width="305" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="placeLocationLabel" destination="Wps-mv-TWO" id="DmY-rG-kok"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" accessoryType="detailButton" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="placePhotosCell" id="fgq-Wd-bSa" customClass="PlacePhotosTableViewCell" customModule="MyPlaces">
+                                        <rect key="frame" x="0.0" y="160" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fgq-Wd-bSa" id="TQt-mf-32e">
+                                            <rect key="frame" x="0.0" y="0.0" width="328" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="XLM-hg-amj">
+                                                    <rect key="frame" x="7" y="0.0" width="321" height="33"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="48I-fv-tj4">
+                                                        <size key="itemSize" width="313" height="50"/>
+                                                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                    </collectionViewFlowLayout>
+                                                    <cells>
+                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="tAI-zJ-MxR">
+                                                            <rect key="frame" x="4" y="0.0" width="313" height="50"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                                                <rect key="frame" x="0.0" y="0.0" width="313" height="50"/>
+                                                                <autoresizingMask key="autoresizingMask"/>
+                                                            </view>
+                                                        </collectionViewCell>
+                                                    </cells>
+                                                </collectionView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="XLM-hg-amj" secondAttribute="trailing" id="3Zs-M0-Y3v"/>
+                                                <constraint firstItem="XLM-hg-amj" firstAttribute="top" secondItem="TQt-mf-32e" secondAttribute="top" id="6XY-T0-a82"/>
+                                                <constraint firstItem="XLM-hg-amj" firstAttribute="leading" secondItem="TQt-mf-32e" secondAttribute="leading" constant="7" id="enC-0H-xu6"/>
+                                                <constraint firstAttribute="bottom" secondItem="XLM-hg-amj" secondAttribute="bottom" constant="10.5" id="kg3-r7-7eU"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="placePhotosView" destination="XLM-hg-amj" id="dYq-oJ-EeY"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" accessoryType="detailButton" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="placeDescriptionCell" rowHeight="57" id="yXE-dx-TQB" customClass="PlaceDescriptionTableViewCell" customModule="MyPlaces">
+                                        <rect key="frame" x="0.0" y="204" width="375" height="57"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yXE-dx-TQB" id="FPg-Kd-E5T">
+                                            <rect key="frame" x="0.0" y="0.0" width="328" height="56.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="placeDecriptionLabel" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="atF-xa-uDy">
+                                                    <rect key="frame" x="15" y="18" width="305" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="scW-WK-CCj"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="atF-xa-uDy" firstAttribute="top" secondItem="FPg-Kd-E5T" secondAttribute="topMargin" constant="7" id="2eT-vo-qGp"/>
+                                                <constraint firstItem="atF-xa-uDy" firstAttribute="trailing" secondItem="FPg-Kd-E5T" secondAttribute="trailingMargin" id="ak5-FX-cZn"/>
+                                                <constraint firstItem="atF-xa-uDy" firstAttribute="leading" secondItem="FPg-Kd-E5T" secondAttribute="leadingMargin" id="lDp-XH-DCs"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="placeDescriptionLabel" destination="atF-xa-uDy" id="5AL-iG-ExF"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="KAF-Yo-8tN" firstAttribute="trailing" secondItem="4JK-6C-LoC" secondAttribute="trailing" id="JaD-Ld-c98"/>
+                            <constraint firstItem="Yz6-AG-0Ha" firstAttribute="trailing" secondItem="4JK-6C-LoC" secondAttribute="trailing" id="QSp-aQ-Dik"/>
+                            <constraint firstItem="Yz6-AG-0Ha" firstAttribute="leading" secondItem="4JK-6C-LoC" secondAttribute="leading" id="XQ2-7f-0aM"/>
+                            <constraint firstItem="Yz6-AG-0Ha" firstAttribute="top" secondItem="KAF-Yo-8tN" secondAttribute="bottom" id="cRl-yF-adx"/>
+                            <constraint firstItem="KAF-Yo-8tN" firstAttribute="top" secondItem="4JK-6C-LoC" secondAttribute="top" id="i5N-uX-T2L"/>
+                            <constraint firstItem="Yz6-AG-0Ha" firstAttribute="bottom" secondItem="4JK-6C-LoC" secondAttribute="bottom" id="ncp-4b-SPP"/>
+                            <constraint firstItem="KAF-Yo-8tN" firstAttribute="leading" secondItem="4JK-6C-LoC" secondAttribute="leading" id="ypE-pa-03S"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="4JK-6C-LoC"/>
+                    </view>
+                    <connections>
+                        <outlet property="placeDetailTable" destination="KAF-Yo-8tN" id="ZDy-dY-tHl"/>
+                        <segue destination="glh-jw-ihr" kind="show" id="mvI-IH-uVf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vFP-Bz-U76" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1432.8" y="144.3778110944528"/>
+        </scene>
+    </scenes>
+</document>
