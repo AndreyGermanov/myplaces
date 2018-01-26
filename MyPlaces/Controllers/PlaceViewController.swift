@@ -10,6 +10,14 @@ import UIKit
 
 class PlaceViewController: UIViewController {
 
+    @IBAction func takePictureBtnClick(_ sender: Any) {
+        let imagePicker = UIImagePickerController()
+        //imagePicker.cameraCaptureMode = .photo
+        imagePicker.sourceType = UIImagePickerControllerSourceType.photoLibrary
+        imagePicker.delegate = self
+        self.present(imagePicker,animated:true)
+    }
+    
     var place: Place?
     
     @IBOutlet weak var placeDetailTable: UITableView!
@@ -31,11 +39,12 @@ class PlaceViewController: UIViewController {
 extension PlaceViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        let count = 4 + self.place!.photos.count
+        return count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-       
+
         switch indexPath.row {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "placeDateCell", for: indexPath)
@@ -78,17 +87,42 @@ extension PlaceViewController: UITableViewDelegate, UITableViewDataSource {
                 if place.descr.count>0 {
                     cell.placeDescriptionLabel.text = place.descr
                 } else {
-                    cell.placeDescriptionLabel.text = ""
+                    cell.placeDescriptionLabel.text = "descipt"
                 }
             }
             return cell
-        case 4:
+        case 4..<1000:
             let cell = tableView.dequeueReusableCell(withIdentifier: "placePhotosCell", for: indexPath) as! PlacePhotosTableViewCell
-            cell.place = self.place
+            if let place = self.place {
+                cell.place = place
+                if indexPath.row-4>=0 && place.photos.count>indexPath.row-4 {
+                    let photo = place.photos[indexPath.row-4]
+                    cell.photoView.image = photo.image
+                    cell.photoDescriptionLabel.text = photo.description
+                }
+            }
+            
             return cell
         default:
             return UITableViewCell()
         }
     }
     
+}
+
+extension PlaceViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        
+        let image = info[UIImagePickerControllerOriginalImage] as! UIImage
+        let photo = Photo("ph1",place:self.place!)
+        photo.image = image
+        place?.photos.append(photo)
+        placeDetailTable.reloadData()
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
+    }
 }

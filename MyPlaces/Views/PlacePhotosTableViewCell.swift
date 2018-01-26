@@ -12,7 +12,10 @@ class PlacePhotosTableViewCell: UITableViewCell {
 
     var place: Place?
     
-    @IBOutlet weak var placePhotosView: UICollectionView!
+    
+    @IBOutlet weak var photoDescriptionLabel: UILabel!
+    
+    @IBOutlet weak var photoView: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
