@@ -24,6 +24,12 @@ class Application: NSObject {
         places.append(place2)
     }
     
+    func addPlace(_ title: String) {
+        let place = Place("p\(places.count+1)")
+        place.title = title
+        places.append(place)
+    }
+    
     func removePlace(_ index: Int) {
         if index < self.places.count {
             self.places.remove(at: index)

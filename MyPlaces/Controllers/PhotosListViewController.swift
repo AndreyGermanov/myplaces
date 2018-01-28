@@ -11,27 +11,64 @@ import UIKit
 class PhotosListViewController: UIPageViewController {
 
     var place: Place?
+    var photoIndex = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        self.dataSource = self
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
     }
-    */
+    
+    @IBAction func unwindToMenu(segue: UIStoryboardSegue) {
+        
+    }
+}
 
+extension PhotosListViewController: UIPageViewControllerDataSource {
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
+        if photoIndex == 0 {
+            return nil
+        } else {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            if let vc = storyboard.instantiateViewController(withIdentifier: "photoViewController") as? PhotoViewController {
+                self.photoIndex = self.photoIndex-1
+                if let place = self.place {
+                    let photo = place.photos[self.photoIndex]
+                    vc.photo = photo
+                    vc.photoIndex = self.photoIndex
+                    return vc
+                } else {
+                    return nil
+                }
+            } else {
+                return nil
+            }
+        }
+    }
+    
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
+        if photoIndex<self.place!.photos.count-1 {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            if let vc = storyboard.instantiateViewController(withIdentifier: "photoViewController") as? PhotoViewController {
+                self.photoIndex = self.photoIndex+1
+                if let place = self.place {
+                    let photo = place.photos[self.photoIndex]
+                    vc.photo = photo
+                    vc.photoIndex = self.photoIndex
+                    return vc
+                } else {
+                    return nil
+                }
+            } else {
+                return nil
+            }
+        } else {
+            return nil
+        }
+    }
+    
+    
 }

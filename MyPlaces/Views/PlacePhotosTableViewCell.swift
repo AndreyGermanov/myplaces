@@ -10,8 +10,37 @@ import UIKit
 
 class PlacePhotosTableViewCell: UITableViewCell {
 
-    var place: Place?
+    var photo: Photo?
+    var photoIndex = 0
+    var viewController: PlaceViewController!
+    var doubleTapGestureRecognizer: UITapGestureRecognizer!
     
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder:aDecoder)
+        doubleTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageDoubleTap))
+        doubleTapGestureRecognizer.numberOfTapsRequired = 2
+        
+    }
+
+    @IBAction func deleteBtnClick(_ sender: Any) {
+        let alert = UIAlertController(title: "Confirm", message: "Are you sure?", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Yes", style: .destructive, handler: { (_) in
+            self.photo!.place.removePhoto(self.photo!.id)
+            self.viewController.placeDetailTable.reloadData()
+            self.viewController.placeDetailTable.setNeedsLayout()
+            alert.dismiss(animated: true, completion: nil)
+        }))
+        alert.addAction(UIAlertAction(title: "No", style: .default, handler: { (_) in
+            alert.dismiss(animated: true, completion: nil)
+        }))
+        self.viewController.present(alert,animated: true)
+    }
+    
+    @objc func imageDoubleTap(sender: UITapGestureRecognizer) {
+        if sender.state == UIGestureRecognizerState.ended {
+            self.viewController.performSegue(withIdentifier: "photoViewSegue", sender: photoIndex)
+        }
+    }
     
     @IBOutlet weak var photoDescriptionLabel: UILabel!
     
@@ -27,5 +56,4 @@ class PlacePhotosTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
 }

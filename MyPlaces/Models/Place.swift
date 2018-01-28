@@ -22,4 +22,15 @@ class Place: NSObject,MKAnnotation  {
     init(_ id: String) {
         self.id = id
     }
+    
+    func removePhoto(_ id: String) {
+        var counter = 0;
+        for var photo in photos {
+            if photo.id == id {
+                self.photos.remove(at: counter)
+                break
+            }
+            counter = counter + 1
+        }
+    }
 }

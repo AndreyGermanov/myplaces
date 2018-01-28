@@ -22,6 +22,30 @@ class PlacesViewController: UIViewController {
     @IBOutlet weak var toggleMapButton: UIBarButtonItem!
     var mapEnabled = true
     
+    @IBAction func addPlaceBtnClick(_ sender: Any) {
+        let alert = UIAlertController(title: "New place", message: "Enter place title", preferredStyle: .alert);
+        alert.addTextField { (textField) in
+            textField.placeholder = "Place title"
+        }
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (_) in
+            if let textFields = alert.textFields {
+                if textFields.count == 1 {
+                    if let text = textFields[0].text {
+                        if text.count>0 {
+                                Application.shared.addPlace(text)
+                                self.placesTable.reloadData()
+                                self.placesTable.layoutSubviews()
+                        }
+                    }
+                }
+            }
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { (_) in
+            alert.dismiss(animated:true,completion: nil)
+        }))
+        self.present(alert,animated: true)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let screenHeight = view.frame.height
@@ -31,6 +55,12 @@ class PlacesViewController: UIViewController {
         placesTable.dataSource = self
         placesTable.isEditing = true
         NotificationCenter.default.addObserver(self, selector: #selector(self.orientationChanged), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        placesTable.reloadData()
+        placesTable.setNeedsLayout()
     }
     
     @objc func orientationChanged() {
