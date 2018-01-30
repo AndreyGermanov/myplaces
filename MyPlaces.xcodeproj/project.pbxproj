@@ -25,6 +25,7 @@
 		CEF69854201A3024008CACA0 /* PlaceLocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF69853201A3024008CACA0 /* PlaceLocationTableViewCell.swift */; };
 		CEF69856201A306C008CACA0 /* PlaceDescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF69855201A306C008CACA0 /* PlaceDescriptionTableViewCell.swift */; };
 		CEF69858201A3084008CACA0 /* PlacePhotosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF69857201A3084008CACA0 /* PlacePhotosTableViewCell.swift */; };
+		CEF6985A2020723B008CACA0 /* PlaceLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF698592020723B008CACA0 /* PlaceLocationViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,7 @@
 		CEF69853201A3024008CACA0 /* PlaceLocationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceLocationTableViewCell.swift; sourceTree = "<group>"; };
 		CEF69855201A306C008CACA0 /* PlaceDescriptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDescriptionTableViewCell.swift; sourceTree = "<group>"; };
 		CEF69857201A3084008CACA0 /* PlacePhotosTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacePhotosTableViewCell.swift; sourceTree = "<group>"; };
+		CEF698592020723B008CACA0 /* PlaceLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceLocationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +156,7 @@
 				CEF6984B201A2E0C008CACA0 /* PlaceViewController.swift */,
 				CEF6984D201A2E2E008CACA0 /* PhotosListViewController.swift */,
 				CEF6984F201A2E48008CACA0 /* PhotoViewController.swift */,
+				CEF698592020723B008CACA0 /* PlaceLocationViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -321,6 +324,7 @@
 				CEF69852201A3006008CACA0 /* PlaceTitleTableViewCell.swift in Sources */,
 				CEF698462019EFF6008CACA0 /* Photo.swift in Sources */,
 				CEF69854201A3024008CACA0 /* PlaceLocationTableViewCell.swift in Sources */,
+				CEF6985A2020723B008CACA0 /* PlaceLocationViewController.swift in Sources */,
 				CEF698442019EE23008CACA0 /* Place.swift in Sources */,
 				CEF6984C201A2E0C008CACA0 /* PlaceViewController.swift in Sources */,
 				CEF69850201A2E48008CACA0 /* PhotoViewController.swift in Sources */,

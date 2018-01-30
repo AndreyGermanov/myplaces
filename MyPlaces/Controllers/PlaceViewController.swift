@@ -154,6 +154,7 @@ extension PlaceViewController: UITableViewDelegate, UITableViewDataSource {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let photoIndex = sender as? Int {
             if let pageView = segue.destination as? PhotosListViewController {
+                
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 if let photoView = storyboard.instantiateViewController(withIdentifier: "photoViewController") as? PhotoViewController {
                     let photo = self.place!.photos[photoIndex]
@@ -164,9 +165,10 @@ extension PlaceViewController: UITableViewDelegate, UITableViewDataSource {
                     pageView.setViewControllers([photoView], direction: .forward, animated: true, completion: nil)
                 }
             }
+        } else if let locationView = segue.destination as? PlaceLocationViewController {
+            locationView.place = self.place
         }
     }
-    
 }
 
 extension PlaceViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
