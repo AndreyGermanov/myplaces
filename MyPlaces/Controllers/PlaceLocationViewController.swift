@@ -58,6 +58,18 @@ class PlaceLocationViewController: UIViewController {
     }
     
     @IBAction func saveBtnClick(_ sender: Any) {
+        
+        if let latitude = Double(latittudeTextField.text!) {
+            place.coordinate.latitude = latitude
+        }
+        if let longitude = Double(longitudeTextField.text!) {
+            place.coordinate.longitude = longitude
+        }
+        if let address = addressTextField.text {
+            place.address = address
+        }
+        self.dismiss(animated: true, completion:nil)
+        
     }
     
     @IBAction func cancelBtnClick(_ sender: Any) {
