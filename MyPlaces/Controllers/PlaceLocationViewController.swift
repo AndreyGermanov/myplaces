@@ -14,6 +14,9 @@ class PlaceLocationViewController: UIViewController {
 
     var activeTextField: UITextField?
     
+    @IBOutlet weak var searchBar: UISearchBar!
+    
+    @IBOutlet var searchResults: UISearchDisplayController!
     
     @IBOutlet weak var addressTextField: UITextField!
     
@@ -45,11 +48,12 @@ class PlaceLocationViewController: UIViewController {
         super.viewDidAppear(animated)
         mapView.setRegion(MKCoordinateRegion.init(center: place.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)), animated: true)
         mapView.removeAnnotations(mapView.annotations)
-        let annotation = MKPointAnnotation()
-        annotation.coordinate = place.coordinate
+        let annotation = MKPlacemark(coordinate: place.coordinate)
+        
         mapView.addAnnotation(annotation)
         self.latittudeTextField.text = String(describing:self.place.coordinate.latitude)
         self.longitudeTextField.text = String(describing:self.place.coordinate.longitude)
+        self.addressTextField.text = self.place.address
     }
     
     @IBAction func detectLocationBtnClick(_ sender: Any) {
@@ -60,10 +64,10 @@ class PlaceLocationViewController: UIViewController {
     @IBAction func saveBtnClick(_ sender: Any) {
         
         if let latitude = Double(latittudeTextField.text!) {
-            place.coordinate.latitude = latitude
+            place.coordinate.latitude = (latitude*1000).rounded()/1000
         }
         if let longitude = Double(longitudeTextField.text!) {
-            place.coordinate.longitude = longitude
+            place.coordinate.longitude = (longitude*1000).rounded()/1000
         }
         if let address = addressTextField.text {
             place.address = address
@@ -97,6 +101,20 @@ extension PlaceLocationViewController: UITextFieldDelegate {
         return true
     }
     
+    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+        if let latitude = Double(latittudeTextField.text!) {
+            if let longitude = Double(longitudeTextField.text!) {
+                print(latitude)
+                print(longitude)
+                mapView.removeAnnotations(mapView.annotations)
+                let annotation = MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: latitude, longitude: longitude))
+                mapView.addAnnotation(annotation)
+                mapView.setCenter(CLLocationCoordinate2D(latitude: latitude, longitude: longitude),animated:true)
+            }
+        }
+        return true
+    }
+    
     // Method fire when onscreen keyboard begins to appear on screen. It calculates to which distance need to scroll
     // screen to make sure that onscreen keyboard not overlap active text field and scrolls screen to this position
     @objc func keyboardWillShow(notification:NSNotification) {
@@ -117,14 +135,39 @@ extension PlaceLocationViewController: UITextFieldDelegate {
     }
 }
 
-
 extension PlaceLocationViewController: CLLocationManagerDelegate {
+    func getAddressString(_ address: CLPlacemark) -> String {
+        var addressString = ""
+        if let country = address.country {
+            addressString = addressString + "\(country) "
+        }
+        if let postCode = address.postalCode {
+            addressString = addressString + "\(postCode) "
+        }
+        if let locality = address.locality {
+            addressString = addressString + "\(locality) "
+        }
+        if let subLocality = address.subLocality {
+            addressString = addressString + "\(subLocality) "
+        }
+        return addressString
+    }
+    
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if locations.count>0 {
             let location = locations[0]
             latittudeTextField.text = String(describing:location.coordinate.latitude)
             longitudeTextField.text = String(describing:location.coordinate.longitude)
             mapView.setCenter(location.coordinate,animated: true)
+            let geocoder = CLGeocoder()
+            geocoder.reverseGeocodeLocation(location) { (placemarks,error) in
+                if let addresses = placemarks {
+                    if (addresses.count>0) {
+                        let address = addresses[0]
+                        self.addressTextField.text = self.getAddressString(address)
+                    }
+                }
+            }
         }
     }
     

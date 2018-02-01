@@ -26,6 +26,7 @@
 		CEF69856201A306C008CACA0 /* PlaceDescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF69855201A306C008CACA0 /* PlaceDescriptionTableViewCell.swift */; };
 		CEF69858201A3084008CACA0 /* PlacePhotosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF69857201A3084008CACA0 /* PlacePhotosTableViewCell.swift */; };
 		CEF6985A2020723B008CACA0 /* PlaceLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF698592020723B008CACA0 /* PlaceLocationViewController.swift */; };
+		CEF6985D20239920008CACA0 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF6985C2023991F008CACA0 /* Utils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,7 @@
 		CEF69855201A306C008CACA0 /* PlaceDescriptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDescriptionTableViewCell.swift; sourceTree = "<group>"; };
 		CEF69857201A3084008CACA0 /* PlacePhotosTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacePhotosTableViewCell.swift; sourceTree = "<group>"; };
 		CEF698592020723B008CACA0 /* PlaceLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceLocationViewController.swift; sourceTree = "<group>"; };
+		CEF6985C2023991F008CACA0 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +123,7 @@
 		CE57FC9A20191CBB00C1598C /* MyPlaces */ = {
 			isa = PBXGroup;
 			children = (
+				CEF6985B202398D0008CACA0 /* Utils */,
 				CEF698422019ED17008CACA0 /* Views */,
 				CEF698412019ED0C008CACA0 /* Models */,
 				CEF698402019ECE7008CACA0 /* Controllers */,
@@ -183,6 +186,14 @@
 				CEF69857201A3084008CACA0 /* PlacePhotosTableViewCell.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		CEF6985B202398D0008CACA0 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				CEF6985C2023991F008CACA0 /* Utils.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -324,6 +335,7 @@
 				CEF69852201A3006008CACA0 /* PlaceTitleTableViewCell.swift in Sources */,
 				CEF698462019EFF6008CACA0 /* Photo.swift in Sources */,
 				CEF69854201A3024008CACA0 /* PlaceLocationTableViewCell.swift in Sources */,
+				CEF6985D20239920008CACA0 /* Utils.swift in Sources */,
 				CEF6985A2020723B008CACA0 /* PlaceLocationViewController.swift in Sources */,
 				CEF698442019EE23008CACA0 /* Place.swift in Sources */,
 				CEF6984C201A2E0C008CACA0 /* PlaceViewController.swift in Sources */,

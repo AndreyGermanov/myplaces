@@ -59,6 +59,14 @@ class PlacesViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        var coordinates = [CLLocationCoordinate2D]()
+        placesMap.removeAnnotations(placesMap.annotations)
+        for place in Application.shared.places {
+            coordinates.append(place.coordinate)
+            let annotation = MKPlacemark(coordinate: place.coordinate)
+            placesMap.addAnnotation(annotation)
+        }
+        placesMap.setCenter(Utils.getCenterOfPins(pins:coordinates),animated:true)
         placesTable.reloadData()
         placesTable.setNeedsLayout()
     }
