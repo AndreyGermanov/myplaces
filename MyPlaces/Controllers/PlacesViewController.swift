@@ -63,8 +63,7 @@ class PlacesViewController: UIViewController {
         placesMap.removeAnnotations(placesMap.annotations)
         for place in Application.shared.places {
             coordinates.append(place.coordinate)
-            let annotation = MKPlacemark(coordinate: place.coordinate)
-            placesMap.addAnnotation(annotation)
+            placesMap.addAnnotation(place)
         }
         placesMap.setCenter(Utils.getCenterOfPins(pins:coordinates),animated:true)
         placesTable.reloadData()
@@ -142,5 +141,13 @@ extension PlacesViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
         let place = Application.shared.places[indexPath.row]
         self.performSegue(withIdentifier: "placeDetailView", sender: place)
+    }
+    
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        
+        if let place = Application.shared.getPlaceByIndex(indexPath.row) {
+            placesMap.selectAnnotation(place, animated: true)
+            placesMap.setCenter(place.coordinate,animated:true)
+        }
     }
 }

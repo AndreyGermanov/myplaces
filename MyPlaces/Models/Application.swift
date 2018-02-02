@@ -36,4 +36,15 @@ class Application: NSObject {
         }
     }
     
+    func getPlaceByIndex(_ index: Int) -> Place? {
+        var counter: Int = 0;
+        for place in places {
+            if counter==index {
+                return place
+            }
+            counter += 1
+        }
+        return nil
+    }
+    
 }
